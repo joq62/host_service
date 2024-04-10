@@ -20,7 +20,7 @@
 
 -define(RepoDir,"host_specs").
 -define(Git,"https://github.com/joq62/host_specs.git").
-
+-define(ConnectModule,"main").
 %% --------------------------------------------------------------------
 %% Function: available_hosts()
 %% Description: Based on hosts.config file checks which hosts are avaible
@@ -88,6 +88,10 @@ test1()->
     }=host:get_application_config("c201.host"),
 
 
+    AllHostNames=host:all_hosts(),
+    CookieStr=atom_to_list(erlang:get_cookie()),
+    NodeName=?ConnectModule++"_"++CookieStr,
+    ['main_a@c200','main_a@c201','main_a@c202','main_a@c230']=lists:sort([list_to_atom(NodeName++"@"++HostName)||HostName<-AllHostNames]),
 
     {error,_,_,_,_}=host:read_file("glurk.host"),
     {error,["Already updated ",?RepoDir]}=host:update_repo(),
