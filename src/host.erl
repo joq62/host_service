@@ -25,6 +25,7 @@
 -export([
 	 
 	 all_hosts/0,
+	 get_hostname/1,
 	 get_ip/1,
 	 get_ssh/1,
 	 get_userid/1,
@@ -91,6 +92,18 @@
 all_hosts() ->
     gen_server:call(?SERVER,{all_hosts},infinity).
 
+
+%%--------------------------------------------------------------------
+%% @doc
+%% Returns the hostname in file FileName   
+%% 
+%% @end
+%%--------------------------------------------------------------------
+-spec get_hostname(FileName::string()) -> 
+	  {ok,HostName::string()} | {error,Reason :: term()}.
+
+get_hostname(FileName) ->
+    gen_server:call(?SERVER,{get,hostname,FileName},infinity).
 
 %%--------------------------------------------------------------------
 %% @doc

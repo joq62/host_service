@@ -28,6 +28,8 @@
   Reads the filenames in the RepoDir.</td></tr>
 <tr><td valign="top"><a href="#get_application_config-1">get_application_config/1</a></td><td>
   Retunrs all hostnames that are in repos files.</td></tr>
+<tr><td valign="top"><a href="#get_hostname-1">get_hostname/1</a></td><td>
+  Returns the hostname in file FileName.</td></tr>
 <tr><td valign="top"><a href="#get_ip-1">get_ip/1</a></td><td>
   Retunrs all hostnames that are in repos files.</td></tr>
 <tr><td valign="top"><a href="#get_passwd-1">get_passwd/1</a></td><td>
@@ -90,6 +92,14 @@
 <p> </p>
 </div><p>
   Retunrs all hostnames that are in repos files
+ </p>
+
+<h3 class="function"><a name="get_hostname-1">get_hostname/1</a></h3>
+<div class="spec">
+<p><tt>get_hostname(FileName::string()) -&gt; {ok, HostName::string()} | {error, Reason::term()}</tt><br></p>
+<p> </p>
+</div><p>
+  Returns the hostname in file FileName
  </p>
 
 <h3 class="function"><a name="get_ip-1">get_ip/1</a></h3>

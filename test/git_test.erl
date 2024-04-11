@@ -74,10 +74,11 @@ test1()->
     "192.168.1.200"=maps:get(ip,Map),
     
     ["c200","c201","c202","c230"]=lists:sort(host:all_hosts()),
+    {ok,"c200"}=host:get_hostname("c200.host"),
     {ok,"192.168.1.200"}=host:get_ip("c200.host"),
     {ok,22}=host:get_ssh("c200.host"),
     {ok,"ubuntu"}=host:get_userid("c200.host"),
-    {ok,_}=host:get_passwd("c200.host"),
+    {ok,_}=host:get_passwd("c202.host"),
     {ok,
      [{conbee,[{conbee_addr,"172.17.0.2"},
 	       {conbee_port,80},
